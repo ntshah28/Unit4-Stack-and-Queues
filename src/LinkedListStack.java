@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class LinkedListStack<T> implements Stack<T> {
     private class Node {
         T item;
