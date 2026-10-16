@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Queue Practice/Queue Practice.iml" filepath="$PROJECT_DIR$/Queue Practice/Queue Practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/Unit 4 Stack and queues.iml" filepath="$PROJECT_DIR$/Unit 4 Stack and queues.iml" />
     </modules>
   </component>
