@@ -51,18 +51,25 @@ public class ArrayStack<T> implements Stack<T> {
     public static boolean isValid(String s) {
         // TODO: Use an ArrayStack<Character> to check matching brackets. Push opening brackets;
         // for each closer, check that the most recent opener has the matching type.
-        String[] strings = s.split(",");
         ArrayStack<Character> stack = new ArrayStack<>();
-        for(String str : strings) {
-            str = str.substring(1,2);
-            if(str.equals("(")||str.equals("[")||str.equals("{")) {
-                stack.push(str.charAt(0));
+        for(int i = 0; i<s.length();i++) {
+            char c= s.charAt(i);
+            if(c=='('||c=='{'||c=='[') {
+                stack.push(c);
             }
-            else {
-                if(!((stack.pop())==(str.charAt(0)))) {return false;}
+            else if(c==')'||c=='}'||c==']') {
+                if(stack.isEmpty()) {
+                    return false;
+                } else {
+                    char top = stack.pop();
+                    if ((c==')'&& top != '(') ||(c == '}' && top != '{') ||(c == ']' && top != '[')) {
+                        return false;
+                    }
+                }
+
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 
     static void check(String label, Object actual, Object expected) {

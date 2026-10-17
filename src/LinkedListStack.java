@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 public class LinkedListStack<T> implements Stack<T> {
     private class Node {
         T item;
@@ -24,6 +22,9 @@ public class LinkedListStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
+        if(isEmpty()) {
+            return null;
+        }
         T item = first.item;
         first = first.next;
         n--;
