@@ -13,12 +13,30 @@ public class QueueStackExercises {
     // Exercise 1: Reverse a stack using one queue.
     public static void reverseStack(Stack<Integer> s) {
         // TODO: implement using one Queue as auxiliary storage.
+        Queue<Integer> q = new LinkedList<>();
+        while(!s.isEmpty()) {
+            q.add(s.pop());
+
+        }
+
+        while(!q.isEmpty()) {
+            s.push(q.peek());
+
+            q.remove();
+        }
+
     }
 
     // Exercise 2: Reorder a queue sorted by absolute value into numeric order.
     // Must use one stack as auxiliary storage.
     public static void reorder(Queue<Integer> q) {
         // TODO: implement using one Stack as auxiliary storage.
+        Queue<Integer> aux = new LinkedList<>();
+        Stack<Integer> s = new Stack<>();
+        while(!q.isEmpty()) {
+            s.push(q.add() );
+
+        }
     }
 
     // Exercise 3: Return true if the queue is a palindrome.
