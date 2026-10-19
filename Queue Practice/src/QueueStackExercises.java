@@ -34,7 +34,7 @@ public class QueueStackExercises {
         Queue<Integer> aux = new LinkedList<>();
         Stack<Integer> s = new Stack<>();
         while(!q.isEmpty()) {
-            s.push(q.add() );
+            s.push(q.add());
 
         }
     }
