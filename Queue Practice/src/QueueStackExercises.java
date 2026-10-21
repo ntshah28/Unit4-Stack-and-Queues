@@ -34,8 +34,19 @@ public class QueueStackExercises {
         Queue<Integer> aux = new LinkedList<>();
         Stack<Integer> s = new Stack<>();
         while(!q.isEmpty()) {
-            s.push(q.add());
+            int n = q.remove();
+            if (n < 0) {
+                s.push(n);
+            } else {
+                aux.add(n);
+            }
+        }
+        while(!s.isEmpty()) {
+            q.add(s.pop());
 
+        }
+        while(!aux.isEmpty()) {
+            q.add(aux.remove());
         }
     }
 
@@ -44,7 +55,26 @@ public class QueueStackExercises {
     // Must use one Stack as auxiliary storage.
     public static boolean isPalindrome(Queue<Integer> q) {
         // TODO: implement using one Stack as auxiliary storage.
-        return false; // placeholder
+        if(q==null||q.isEmpty()) {
+            return true;
+        }
+        Stack<Integer> s = new Stack<>();
+        int size = q.size();
+        for(int i = 0; i <size; i++) {
+            int val= q.remove();
+            s.push(val);
+            q.add(val);
+        }
+        boolean b = true;
+        for(int i = 0; i<size;i++) {
+            int val = q.remove();
+            int stackVal = s.pop();
+            if(val!=stackVal) {
+                b= false;
+            }
+            q.add(val);
+        }
+        return b; // placeholder
     }
 
     // Exercise 4: Remove and return the minimum value from the stack.
@@ -52,7 +82,33 @@ public class QueueStackExercises {
     // Must use one queue as auxiliary storage.
     public static int removeMin(Stack<Integer> stack) {
         // TODO: implement using one Queue as auxiliary storage.
-        return 0; // placeholder
+        if(stack.isEmpty()) {
+            return 0;
+        }
+        Queue<Integer> q = new LinkedList<>();
+        int min  =stack.peek();
+        while(!stack.isEmpty()) {
+            int val = stack.pop();
+            if(val<min) {
+                min = val;
+            }
+            q.add(val);
+
+        }
+        while(!q.isEmpty()) {
+            stack.push(q.remove());
+        }
+        while(!stack.isEmpty()) {
+            q.add(stack.pop());
+        }
+        while(!q.isEmpty()) {
+            int val = q.remove();
+            if(val!=min) {
+                stack.push(val);
+            }
+        }
+
+        return min; // placeholder
     }
 
     // --- Test helpers ---
